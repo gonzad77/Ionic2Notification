@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 import { NavController } from 'ionic-angular';
 
-import { LocalNotifications } from 'ionic-native';
+import { LocalNotifications, Badge } from 'ionic-native';
 
 @Component({
   selector: 'page-home',
@@ -11,7 +11,7 @@ import { LocalNotifications } from 'ionic-native';
 export class HomePage {
 
   constructor(public navCtrl: NavController) {
-
+    Badge.set(0);
   }
 
   Notificate(){
@@ -20,6 +20,7 @@ export class HomePage {
       title: 'ionicThemes',
       text: 'Single Notification',
     });
+    Badge.increase(1);
   }
 
 }
