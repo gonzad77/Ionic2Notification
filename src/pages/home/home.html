@@ -5,5 +5,28 @@
 </ion-header>
 
 <ion-content padding>
-  <button ion-button (click)="Notificate()">Notification</button>
+  <ion-list>
+
+    <ion-item>
+      <ion-label>Notify me at: </ion-label>
+      <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="notifyTime" (ionChange)="timeChange($event)"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Repeat:</ion-label>
+      <ion-select multiple='true' [(ngModel)]="daysSelected">
+        <ion-option *ngFor="let day of days" [value]="day.id">{{day.title}}</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Name:</ion-label>
+      <ion-input [(ngModel)]="name" type="text"></ion-input>
+    </ion-item>
+
+  </ion-list>
+
+  <ion-footer>
+    <button (click)="Notificate()" ion-button full>Schedule</button>
+  </ion-footer>
 </ion-content>
