@@ -3,7 +3,7 @@ import { Platform } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
 
 import { HomePage } from '../pages/home/home';
-import { Badge, LocalNotifications, NativeStorage } from 'ionic-native';
+import { Badge, LocalNotifications } from 'ionic-native';
 
 
 @Component({

@@ -13,7 +13,7 @@
     </ion-item>
 
     <ion-item>
-      <ion-label>Repeat:</ion-label>
+      <ion-label>On:</ion-label>
       <ion-select multiple='true' [(ngModel)]="daysSelected">
         <ion-option *ngFor="let day of days" [value]="day.id">{{day.title}}</ion-option>
       </ion-select>
@@ -27,6 +27,6 @@
   </ion-list>
 
   <ion-footer>
-    <button (click)="Notificate()" ion-button full>Schedule</button>
+    <button (click)="ScheduleNotification()" ion-button full>Schedule</button>
   </ion-footer>
 </ion-content>
