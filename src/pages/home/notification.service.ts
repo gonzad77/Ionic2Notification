@@ -23,26 +23,26 @@ export class NotificationService {
      return this.days;
    }
 
-   scheduleNotification(name, date, frecuency){
+   scheduleNotification(name, date, frecuency, index){
      let env = this;
      NativeStorage.getItem('id')
      .then(function(notificationId){
        //If an id is stored
-       env.scheduleById(name, date, frecuency, notificationId);
+       env.scheduleById(name, date, frecuency, index, notificationId);
      }, function (){
        //If it is the first notification, id will be 0
-       env.scheduleById(name, date, frecuency, 0);
+       env.scheduleById(name, date, frecuency, index, 0);
      });
     }
 
-   scheduleById(name, date, frecuency, id){
+   scheduleById(name, date, frecuency, index, id){
      LocalNotifications.schedule({
-       id: id,
+       id: (id + index),
        title: 'ionicThemes',
        text: name,
        at: date,
        every: frecuency
      });
-     NativeStorage.setItem('id', (id + 1));
+     NativeStorage.setItem('id', (id + index + 1));
    }
  }

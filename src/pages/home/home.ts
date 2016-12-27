@@ -34,9 +34,9 @@ export class HomePage {
 
   ScheduleNotification(){
     let currentDate = new Date();
+    let index = 0;
     debugger;
     for(let day of this.daysSelected){
-
       let date = new Date();
       let dayDifference = day - currentDate.getDay();
       if(dayDifference < 0){
@@ -49,7 +49,8 @@ export class HomePage {
       date.setMinutes(this.chosenMinutes);
       date.setSeconds(0);
 
-      this.notificationService.scheduleNotification(this.name, date, 'week');
+      this.notificationService.scheduleNotification(this.name, date, 'week', index);
+      index++;
     }
   }
 
